@@ -1,0 +1,33 @@
+kfj
+
+
+    - name: 1. Clone the code repository to the docroot ( pull repo from git with SSH )
+      git:
+        repo: "git@github.com:theshedllc/ished_code.git"
+        dest: /home/ubuntu/yogesh
+        accept_hostkey: yes
+        update: no
+        clone: yes
+        force: yes
+        remote: origin
+        key_file: /home/ubuntu/.ssh/id_rsa
+        version: release/release-0.9.17
+      become_user: ubuntu
+
+
+    - name: 22. change file permission
+      file:
+        path: "{{ item }}"
+        mode: '777'
+        recurse: yes
+      with_items:
+        - /var/www/html/vqmod
+        - /var/www/html/image
+        - /var/www/html/system/storage/download
+        - /var/www/html/system/storage/modification
+        - /var/www/html/system/storage/upload
+        - /var/www/html/iptools/v1/image
+        - /var/www/html/image/product_upload/
+        - /var/www/html/system/library/purpletree_upload/export/
+
+
