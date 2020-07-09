@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: playground
+  name: demo
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-static-deployment
-  namespace: playground
+  namespace: demo
   labels:
     name: nginx-static
     #  annotations:
@@ -27,7 +27,7 @@ spec:
       # automountServiceAccountToken: false
       containers:
       - name: nginx-static
-        image: 220411221176.dkr.ecr.us-east-1.amazonaws.com/demo1:hello-world.v2
+        image: 220411221176.dkr.ecr.us-east-1.amazonaws.com/demo1:hello-world.v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
