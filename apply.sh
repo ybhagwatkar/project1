@@ -12,6 +12,6 @@ set -u
 #
 #   export KUBECTL_COMMAND="kubectl --context=my-cloud-cluster-context"
 #
-${KUBECTL_COMMAND} apply --filename namespace.yml
-${KUBECTL_COMMAND} apply --filename . --recursive
+kubectl create -f namespace.yml
+kubectl create -f . --recursive
 
