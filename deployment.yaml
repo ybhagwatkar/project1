@@ -12,8 +12,9 @@ metadata:
   namespace: demo
   labels:
     name: nginx-static
-    #  annotations:
-    #flux.weave.works/automated: true
+  annotations:
+      flux.weave.works/tag.podinfo: glob:*
+      flux.weave.works/automated: 'true'
 spec:
   replicas: 2
   selector:
@@ -27,7 +28,7 @@ spec:
       # automountServiceAccountToken: false
       containers:
       - name: nginx-static
-        image: 220411221176.dkr.ecr.us-east-1.amazonaws.com/demo1:hello-world.v2
+        image: 220411221176.dkr.ecr.us-east-1.amazonaws.com/demo1:hello-world.v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
