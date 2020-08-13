@@ -27,7 +27,7 @@ spec:
       # automountServiceAccountToken: false
       containers:
       - name: nginx-static
-        image: 220411221176.dkr.ecr.us-east-1.amazonaws.com/demo1:hello-world.v3
+        image: nginx
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
